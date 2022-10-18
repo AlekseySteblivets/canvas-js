@@ -13,17 +13,17 @@ console.log("count1:", count);
 
 let ax1 = 30;
 let ay1 = 15;
-let ax2 = 390;
-let ay2 = 20;
+let ax2 = 350;
+let ay2 = 190;
 
 let countForDeleteX = ax2 - ax1;
 let countForDeleteY = ay2 - ay1;
 
 if (countForDeleteX < countForDeleteY) {
-  count = Math.round(countForDeleteX / 2);
+  count = Math.round(countForDeleteY / 2);
 }
 if (countForDeleteX > countForDeleteY) {
-  count = Math.round(countForDeleteY / 2);
+  count = Math.round(countForDeleteX / 2);
 }
 console.log("count2:", count);
 
@@ -45,19 +45,19 @@ function collapseLine(myTimer) {
   ctx.stroke();
 
   if (countForDeleteX < countForDeleteY) {
-    ax1 = ax1 + 1;
-    ax2 = ax2 - 1;
-
-    ay1 = ay1 + countForDeleteY / countForDeleteX;
-    ay2 = ay2 - countForDeleteY / countForDeleteX;
-  }
-
-  if (countForDeleteX > countForDeleteY) {
     ax1 = ax1 + countForDeleteX / countForDeleteY;
     ax2 = ax2 - countForDeleteX / countForDeleteY;
 
     ay1 = ay1 + 1;
     ay2 = ay2 - 1;
+  }
+
+  if (countForDeleteX > countForDeleteY) {
+    ax1 = ax1 + 1;
+    ax2 = ax2 - 1;
+
+    ay1 = ay1 + countForDeleteY / countForDeleteX;
+    ay2 = ay2 - countForDeleteY / countForDeleteX;
   }
   if (count <= 0) {
     clearInterval(myTimer);
